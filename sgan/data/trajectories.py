@@ -128,7 +128,7 @@ class TrajectoryDataset(Dataset):
                     curr_ped_seq = np.around(curr_ped_seq, decimals=4)
                     pad_front = frames.index(curr_ped_seq[0, 0]) - idx
                     pad_end = frames.index(curr_ped_seq[-1, 0]) - idx + 1
-                    if pad_end - pad_front != self.seq_len:
+                    if len(curr_ped_seq) != self.seq_len:
                         continue
                     curr_ped_seq = np.transpose(curr_ped_seq[:, 2:])
                     curr_ped_seq = curr_ped_seq
